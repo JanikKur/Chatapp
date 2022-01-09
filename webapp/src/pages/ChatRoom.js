@@ -1,17 +1,17 @@
 import React, {useEffect, useState, useRef} from 'react'
 import {io} from '../../node_modules/socket.io/client-dist/socket.io';
-import Message from '../components/Message';
 import { useHistory } from 'react-router-dom';
 import SendMessageForm from '../components/SendMessageForm';
 import Chat from '../parts/Chat';
 import RoomInfo from '../parts/RoomInfo';
+import '../assets/styles/chatRoom.css';
+
 export default function ChatRoom() {
 
     const socket = io('ws://192.168.2.103:5000');
     const [room, setRoom] = useState(null);
     const [users, setUsers] = useState(null);
     const [messages, setMessages] = useState([]);
-    const messageRef = useRef();
     const [username, setUsername] = useState(null);
 
     const history = useHistory();
@@ -41,23 +41,13 @@ export default function ChatRoom() {
     },[]);
 
 
-    let sendMessage = e => {
-        e.preventDefault();
-        // Get message text
-        let msg = messageRef.current.value;
-
-        msg = msg.trim();
-
-        if (!msg) {
+    let sendMessage = message => {
+        message = message.trim();
+        if (!message) {
             return false;
         }
-
         // Emit message to server
-        socket.emit('chatMessage', msg, username);
-
-        // Clear input
-        messageRef.current.value = '';
-        messageRef.current.focus();
+        socket.emit('chatMessage', message, username);
     }
 
     if(!users || !room) return null;
@@ -73,7 +63,7 @@ export default function ChatRoom() {
                 <Chat username={username} messages={messages}/>
             </main>
             <footer>
-                <SendMessageForm sendMessage={sendMessage} messageRef={messageRef}/>
+                <SendMessageForm sendMessage={sendMessage}/>
             </footer>
         </div>
     )

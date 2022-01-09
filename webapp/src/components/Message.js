@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react'
+import '../assets/styles/message.css';
 
 export default function Message({username, data}) {
 

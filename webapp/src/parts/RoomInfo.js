@@ -1,4 +1,5 @@
 import React from 'react'
+import '../assets/styles/roomInfo.css';
 
 export default function RoomInfo({room, users, username}) {
     return (

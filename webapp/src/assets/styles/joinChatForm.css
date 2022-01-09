@@ -1,0 +1,50 @@
+.join-chat{
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #7386ff;
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+}
+.join-chat .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #667aff;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    margin: 10px;
+}
+.form-group label{
+    font-size: 20px;
+}
+.form-group input,select{
+    border: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    font-size: 100%;
+}
+.submit-button{
+    border: 0px;
+    height: 40px;
+    width: 50%;
+    color: #7386ff;
+    background-color: white;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
