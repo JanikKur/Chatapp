@@ -5,6 +5,7 @@ import SendMessageForm from '../components/SendMessageForm';
 import Chat from '../parts/Chat';
 import RoomInfo from '../parts/RoomInfo';
 import '../assets/styles/chatRoom.css';
+import checkUsername from '../utils/checkUsername';
 
 export default function ChatRoom() {
 
@@ -19,8 +20,8 @@ export default function ChatRoom() {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
-        if(!username.trim()){
-            alert("No Empty Username!")
+        if(!checkUsername(username)){
+            alert('Username must contain at least 3 Characters!')
             history.push('/');
             return;
         }

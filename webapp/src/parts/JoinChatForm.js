@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 import {useHistory} from 'react-router-dom';
 import '../assets/styles/joinChatForm.css';
+import checkUsername from '../utils/checkUsername';
 
 export default function JoinChatForm() {
 
@@ -10,9 +11,9 @@ export default function JoinChatForm() {
     
     let joinRoom = e => {
         e.preventDefault();
-        if(usernameRef.current.value.trim().length < 3){
+        if(!checkUsername(usernameRef.current.value)){
             alert('Username must contain at least 3 Characters!')
-           return; 
+            return; 
         }
         history.push(`/chatroom?username=${usernameRef.current.value}&room=${roomRef.current.value}`);
     }
