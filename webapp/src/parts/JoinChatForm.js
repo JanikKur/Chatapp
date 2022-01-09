@@ -10,6 +10,10 @@ export default function JoinChatForm() {
     
     let joinRoom = e => {
         e.preventDefault();
+        if(usernameRef.current.value.trim().length < 3){
+            alert('Username must contain at least 3 Characters!')
+           return; 
+        }
         history.push(`/chatroom?username=${usernameRef.current.value}&room=${roomRef.current.value}`);
     }
 

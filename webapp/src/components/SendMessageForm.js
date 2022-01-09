@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import '../assets/styles/SendMessageForm.css';
+import '../assets/styles/sendMessageForm.css';
 
 export default function SendMessageForm({sendMessage}) {
 

@@ -10,7 +10,7 @@ export default function Message({username, data}) {
     },[]);
 
     return (
-        <div ref={messageRef} class={`message ${username === data.username && 'own-message'}`}>
+        <div ref={messageRef} className={`message ${username === data.username && 'own-message'}`}>
             <header>
                 <label className='message-username'>{data.username}</label>
                 <label className='message-time'>{data.time}</label>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState } from 'react'
 import {io} from '../../node_modules/socket.io/client-dist/socket.io';
 import { useHistory } from 'react-router-dom';
 import SendMessageForm from '../components/SendMessageForm';
@@ -19,6 +19,11 @@ export default function ChatRoom() {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
+        if(!username.trim()){
+            alert("No Empty Username!")
+            history.push('/');
+            return;
+        }
         setUsername(username);
         const room = urlParams.get('room');
 
